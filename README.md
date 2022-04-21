@@ -30,7 +30,7 @@ Kubernetes cluster (một cụm bao gồm một master và một hoặc nhiều 
 - Master nodes (control plane)
 - Worker nodes
 
-![k8s architecture] (https://images.viblo.asia/7f2a7e35-c0d8-42c2-828b-8309ea1a48f6.png)
+![k8s architecture] (https://github.com/damquangtan/Kubernetes/blob/main/k8s.png)
 
 Master nodes bao gồm 4 thành phần chính là:
 
