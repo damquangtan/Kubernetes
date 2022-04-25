@@ -23,7 +23,7 @@ Giải pháp này giải quyết vấn đề chạy thẳng ứng dụng trên S
 Các containers tương tự như máy ảo, nhưng chúng có đặc tính cách ly thoải mái để chia sẻ Hệ điều hành (OS) giữa các ứng dụng. Vì vậy, container được coi là nhẹ. Tương tự như máy ảo, **container** có hệ thống tệp riêng, chia sẻ CPU, bộ nhớ, không gian xử lý và hơn thế nữa. Khi chúng được tách ra khỏi cơ sở hạ tầng, chúng có thể di động qua các đám mây và các bản phân phối hệ điều hành.
 
 
-***Kubernetes giúp chúng ta vấn đề gì?**
+**Kubernetes giúp chúng ta vấn đề gì?**
 
 Chạy ứng dụng bằng container sẽ giúp chúng ta rất nhiều vấn đề. Nhưng sẽ như thế nào nếu số lượng container là rất lớn?
 Làm thế nào chúng ta có thể biết container nào sẽ thuộc về ứng dụng nào? Và nếu ta muốn tăng performance của ứng dụng
