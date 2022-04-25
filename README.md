@@ -9,8 +9,22 @@ Có thể dùng Kubernetes để phát triển ứng dụng trên nhiều nền 
 
 ### Tại sao nên sử dụng Kubernetes?
 
-Nó liên quan tới bài toán chạy ứng dụng bằng container (giải thích cách deploy ứng dụng theo cách truyền thống, deploy
-ứng dụng sử dụng virtual machine và deploy ứng dụng sử dụng container).
+![deployment](https://github.com/damquangtan/Kubernetes/blob/main/deployment.png)
+**Chạy thẳng ứng dụng trên Server(Traditional deployment)**
+
+Chúng ta chạy trên Server vật lý. Điểm yếu của cách deploy này là các ứng dụng sử dụng chung tài nguyên và gây ra vấn đề phân bổ tài nguyên cho các ứng dụng. Ví dụ khi nhiều ứng dụng chạy trên cùng server vật lý, nếu có một thằng sử dụng nhiều tài nguyên hơn và cứ tăng tài nguyên nó sử dụng (vì ta không có giới hạn) thì những thằng còn lại sẽ có ít tài nguyên để sử dụng, khiến các ứng dụng còn lại sẽ chạy chậm, để giải quyết vấn đề với cách deploy này, ta chỉ có cách là tách những thằng ứng dụng khác qua một server vật lý khác. Việc này dẫn tới việc phát sinh chi phí cao, gây tốn kém.
+
+**Chia Server thành các máy ảo và chạy ứng dụng trên máy ảo đó(Virtualized deployment)**
+
+Giải pháp này giải quyết vấn đề chạy thẳng ứng dụng trên Server, nó cho phép ta chạy nhiều máy ảo (Virtual Machines - VMs) trên cùng một Server vật lý. Mỗi máy ảo có file system, hệ điều hành, shared CPU riêng. Các ứng dụng sẽ chạy trong các máy ảo này. VM được định nghĩa có giới hạn tài nguyên, nên sẽ không xảy ra vấn để một ứng dụng sẽ chạy tốn tài nguyên vượt qua giới hạn VM và ảnh hưởng tới những ứng dụng nằm trong VM khác. 
+
+**Chạy ứng dụng bằng cách sử dụng Container**
+
+Các containers tương tự như máy ảo, nhưng chúng có đặc tính cách ly thoải mái để chia sẻ Hệ điều hành (OS) giữa các ứng dụng. Vì vậy, container được coi là nhẹ. Tương tự như máy ảo, **container** có hệ thống tệp riêng, chia sẻ CPU, bộ nhớ, không gian xử lý và hơn thế nữa. Khi chúng được tách ra khỏi cơ sở hạ tầng, chúng có thể di động qua các đám mây và các bản phân phối hệ điều hành.
+
+
+***Kubernetes giúp chúng ta vấn đề gì?*
+
 Chạy ứng dụng bằng container sẽ giúp chúng ta rất nhiều vấn đề. Nhưng sẽ như thế nào nếu số lượng container là rất lớn?
 Làm thế nào chúng ta có thể biết container nào sẽ thuộc về ứng dụng nào? Và nếu ta muốn tăng performance của ứng dụng
 bằng cách cho nó chạy 2 hoặc 3 container thì làm thế nào ta dẫn request của ngưởi dùng tới 2 hoặc 3 container đó, ta sẽ
@@ -30,7 +44,7 @@ Kubernetes cluster (một cụm bao gồm một master và một hoặc nhiều 
 - Master nodes (control plane)
 - Worker nodes
 
-![k8s architecture] (https://github.com/damquangtan/Kubernetes/blob/main/k8s.png)
+![k8s_architecture] (https://github.com/damquangtan/Kubernetes/blob/main/k8s.png)
 
 Master nodes bao gồm 4 thành phần chính là:
 
